@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <!--  wanna be the very best
+Like no one ever was
+To catch them is my real test
+To train them is my cause
+
+I will travel across the land
+Searching far and wide
+Teach Pokémon to understand
+The power that's inside
+
+Pokémon -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>MarkUp Calculator</title>
+  </head>
+  <body class="bg-light">
+        
+       <div class="container">
+          
+          <div class="row mt-5">
+
+            <div class="col-md-6 offset-3">
+            
+            <div class="accordion" id="accordion">
+      <div class="accordion-group">
+       <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+       <h1><span itemprop="name">Markup Calculator</span></h1></a>
+       </div>
+       <div id="collapseOne" class="accordion-body in collapse" style="height: auto;">
+        <div class="accordion-inner">
+<p>This markup calculator was designed for Reality Interactive and is only a beta. Please use normal calculations until this script has been fully tested.</p>        
+</div>
+       </div>
+      </div>
+     </div>
+
+              
+            <div class="card card-default">
+              <div class="card-header">
+                Markup Calculator
+              </div>
+
+              <div class="card-body">
+                  
+                 <form action="scripts.php" method="post" class="markup_form">
+                    
+                    <div class="form-group">
+                      <label for="" class="text-danger">Original Cost :* </label>
+                      <input type="number" name="cost" class="form-control" id="cost" placeholder="$" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="" class="text-danger">Gross margin rate :* </label>
+                      <input type="number" name="rate" class="form-control" id="rate" placeholder="%" required=""><br>
+                    </div>
+                    
+                    <div class="form-group">
+                      <input type="submit" value="Calculate" class="btn btn-primary">
+                    </div>
+
+                 </form> 
+
+              </div>
+            </div>
+
+            <div id="result"></div>
+
+            </div>
+            
+
+          </div>
+
+       </div> 
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function(){
+
+        $(".markup_form").on("submit",function(e){
+
+          e.preventDefault();
+
+          $.ajax({
+            url:"scripts.php",
+            method:"post",
+            data:$(this).serialize(),
+            success:function(response){
+
+              $("#result").html(response);
+              
+
+            }
+          })
+
+        })
+
+
+      });
+    </script>
+    <!-- ok seriously why are you even down here. If there is an error see Eric -->
+  </body>
+</html>
